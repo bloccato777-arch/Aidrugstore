@@ -4,7 +4,6 @@ import { products, Product } from '@/data/products'
 import { ProductCard } from '@/components/ui/ProductCard'
 
 const categories = ['All', 'Psychedelic', 'Stimulant', 'Dissociative', 'Depressant', 'Entheogen', 'Bundle']
-const dosages = ['All', 'Low', 'Medium', 'High', 'Extreme']
 const sortOptions = [
   { label: 'Featured', value: 'featured' },
   { label: 'Price ↑', value: 'price-asc' },
@@ -15,7 +14,6 @@ const sortOptions = [
 export default function ProductsPage() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('All')
-  const [dosage, setDosage] = useState('All')
   const [sort, setSort] = useState('featured')
 
   const filtered = useMemo(() => {
@@ -32,7 +30,6 @@ export default function ProductsPage() {
     }
 
     if (category !== 'All') list = list.filter(p => p.category === category)
-    if (dosage !== 'All') list = list.filter(p => p.dosage === dosage)
 
     list.sort((a, b) => {
       if (sort === 'featured') return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
@@ -43,7 +40,7 @@ export default function ProductsPage() {
     })
 
     return list
-  }, [search, category, dosage, sort])
+  }, [search, category, sort])
 
   const pillStyle = (active: boolean, color = '#9d4edd') => ({
     padding: '0.375rem 0.875rem',
@@ -119,24 +116,14 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          {/* Dosage + Sort */}
-          <div className="filters-sort-row" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-              <span style={{ color: '#8888aa', fontSize: '0.75rem', letterSpacing: '0.08em', marginRight: '0.25rem' }}>DOSAGE:</span>
-              {dosages.map(d => (
-                <button key={d} onClick={() => setDosage(d)} style={pillStyle(dosage === d, '#00f5d4')}>
-                  {d}
-                </button>
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#8888aa', fontSize: '0.75rem', letterSpacing: '0.08em' }}>SORT:</span>
-              {sortOptions.map(s => (
-                <button key={s.value} onClick={() => setSort(s.value)} style={pillStyle(sort === s.value, '#ff006e')}>
-                  {s.label}
-                </button>
-              ))}
-            </div>
+          {/* Sort */}
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <span style={{ color: '#8888aa', fontSize: '0.75rem', letterSpacing: '0.08em' }}>SORT:</span>
+            {sortOptions.map(s => (
+              <button key={s.value} onClick={() => setSort(s.value)} style={pillStyle(sort === s.value, '#ff006e')}>
+                {s.label}
+              </button>
+            ))}
           </div>
         </div>
 

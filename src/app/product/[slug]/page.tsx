@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { products } from '@/data/products'
-import { DosageBadge } from '@/components/ui/DosageBadge'
 import { CategoryBadge } from '@/components/ui/CategoryBadge'
 import { BuyButton } from '@/components/ui/BuyButton'
 import { ProductCard } from '@/components/ui/ProductCard'
@@ -63,7 +62,6 @@ export default async function ProductPage({
             {/* Badges */}
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
               <CategoryBadge category={product.category} />
-              <DosageBadge dosage={product.dosage} />
             </div>
 
             {/* Name */}
@@ -292,10 +290,6 @@ export default async function ProductPage({
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ color: '#8888aa', fontSize: '0.8rem' }}>Contains</span>
                   <span style={{ color: '#f0f0ff', fontSize: '0.8rem' }}>{product.emoji} {product.substance}</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ color: '#8888aa', fontSize: '0.8rem' }}>Dosage Level</span>
-                  <DosageBadge dosage={product.dosage} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ color: '#8888aa', fontSize: '0.8rem' }}>Category</span>

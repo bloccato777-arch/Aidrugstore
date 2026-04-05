@@ -2,7 +2,6 @@
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { Product } from '@/data/products'
-import { DosageBadge } from './DosageBadge'
 import { CategoryBadge } from './CategoryBadge'
 
 interface ProductCardProps {
@@ -82,7 +81,6 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Badges */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1rem' }}>
         <CategoryBadge category={product.category} />
-        <DosageBadge dosage={product.dosage} />
       </div>
 
       {/* Effects */}
