@@ -120,7 +120,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Dosage + Sort */}
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div className="filters-sort-row" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
               <span style={{ color: '#8888aa', fontSize: '0.75rem', letterSpacing: '0.08em', marginRight: '0.25rem' }}>DOSAGE:</span>
               {dosages.map(d => (
@@ -167,11 +167,7 @@ export default function ProductsPage() {
             </button>
           </div>
         ) : (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-            gap: '1.25rem',
-          }}>
+          <div className="products-grid">
             {filtered.map(product => (
               <ProductCard key={product.slug} product={product} />
             ))}

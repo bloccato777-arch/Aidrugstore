@@ -44,24 +44,19 @@ export default async function ProductPage({
         </div>
       </div>
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3rem 1.5rem' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 3fr) minmax(280px, 2fr)',
-          gap: '3rem',
-          alignItems: 'start',
-        }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3rem 1.5rem' }} className="page-content">
+        <div className="product-layout">
 
           {/* LEFT: Product Details */}
           <div>
             {/* Emoji */}
-            <div style={{
-              fontSize: '5rem',
-              lineHeight: 1,
-              marginBottom: '1.5rem',
-              filter: `drop-shadow(0 0 30px ${product.color}88)`,
-              animation: 'float 6s ease-in-out infinite',
-            }}>
+            <div
+              className="product-emoji"
+              style={{
+                filter: `drop-shadow(0 0 30px ${product.color}88)`,
+                animation: 'float 6s ease-in-out infinite',
+              }}
+            >
               {product.emoji}
             </div>
 
@@ -250,7 +245,7 @@ export default async function ProductPage({
           </div>
 
           {/* RIGHT: Buy Panel */}
-          <div style={{ position: 'sticky', top: '80px' }}>
+          <div className="buy-panel">
             <div style={{
               backgroundColor: '#1a1a28',
               border: `1px solid ${product.color}44`,
@@ -340,11 +335,7 @@ export default async function ProductPage({
             }}>
               More {product.category} Substances
             </h2>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: '1.25rem',
-            }}>
+            <div className="products-grid">
               {related.map(p => (
                 <ProductCard key={p.slug} product={p} />
               ))}
@@ -353,13 +344,7 @@ export default async function ProductPage({
         )}
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: minmax(0, 3fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
+      {/* Stili mobile ora in globals.css */}
     </div>
   )
 }
