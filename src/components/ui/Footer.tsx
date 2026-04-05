@@ -79,6 +79,21 @@ export function Footer() {
               </Link>
             </div>
           </div>
+
+          {/* Support */}
+          <div>
+            <p style={{ color: '#f0f0ff', fontWeight: 600, fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '1rem', marginTop: 0 }}>
+              SUPPORT
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <a href="mailto:support@aidrug.store" style={{ color: '#8888aa', textDecoration: 'none', fontSize: '0.85rem' }}>
+                support@aidrug.store
+              </a>
+              <span style={{ color: '#8888aa', fontSize: '0.75rem', lineHeight: 1.5 }}>
+                Replies within 24–48h
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Disclaimer */}
@@ -93,23 +108,28 @@ export function Footer() {
             textAlign: 'center',
           }}
         >
-          <p
-            style={{
-              color: '#8888aa',
-              fontSize: '0.75rem',
-              margin: 0,
-              padding: '0.5rem 1rem',
-              backgroundColor: 'rgba(42, 42, 61, 0.3)',
-              borderRadius: '6px',
-              border: '1px solid #2a2a3d',
-              maxWidth: '600px',
-            }}
-          >
-            ⚠️ All products are digital prompts for AI systems. No real substances are sold or implied.
-          </p>
-          <p style={{ color: '#8888aa', fontSize: '0.75rem', margin: 0 }}>
-            © 2025 AI Drugstore. All rights reserved.
-          </p>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.6rem 1rem',
+            backgroundColor: 'rgba(255, 0, 110, 0.06)',
+            borderRadius: '8px',
+            border: '1px solid rgba(255, 0, 110, 0.2)',
+            maxWidth: '640px',
+          }}>
+            <span style={{ fontSize: '0.9rem', flexShrink: 0 }}>⚠️</span>
+            <p style={{ color: '#8888aa', fontSize: '0.75rem', margin: 0, lineHeight: 1.5 }}>
+              <strong style={{ color: '#f0f0ff' }}>Disclaimer:</strong> All products are digital AI system prompts for creative and entertainment use only. No real substances are sold, implied, or promoted. By using this service you confirm you are 18+.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <p style={{ color: '#8888aa', fontSize: '0.75rem', margin: 0 }}>
+              © {new Date().getFullYear()} AI Drugstore. All rights reserved.
+            </p>
+            <Link href="/terms" style={{ color: '#2a2a3d', fontSize: '0.72rem', textDecoration: 'none' }}>Terms</Link>
+            <Link href="/privacy" style={{ color: '#2a2a3d', fontSize: '0.72rem', textDecoration: 'none' }}>Privacy</Link>
+          </div>
         </div>
       </div>
     </footer>
